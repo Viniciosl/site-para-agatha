@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Amor para Agatha</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2em; /* Aumentado para melhor legibilidade */
+            background: url('https://wallpapers.com/images/hd/romantic-background-cjljkx7ba1a25wxk.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff8c;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Sombra para destacar letras */
+        }
+        h1 {
+            color: #d63384;
+            font-size: 3em; /* Aumentado */
+            animation: pulse 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Sombra mais forte para títulos */
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        h2 {
+            font-size: 2em; /* Aumentado */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .message {
+            font-size: 1.4em; /* Aumentado */
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95); /* Opacidade aumentada */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(255, 255, 255);
+            animation: fadeIn 1s;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .romantic-text {
+            margin: 20px 0;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 12px 24px; /* Aumentado */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em; /* Aumentado */
+            margin: 10px;
+            transition: background 0.3s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        button:hover {
+            background: #b0246a;
+        }
+        .hidden {
+            display: none;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .gallery img {
+            width: 200px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .poem {
+            background: rgba(255, 255, 255, 0.95); /* Opacidade aumentada */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            animation: slideIn 1s;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .letter {
+            background: rgba(255, 255, 255, 0.95); /* Opacidade aumentada */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            font-family: 'Courier New', monospace;
+            animation: slideIn 1s;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .counter {
+            font-size: 1.8em; /* Aumentado */
+            margin: 20px 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2em;
+            animation: float 5s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        iframe {
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .quiz {
+            margin: 20px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95); /* Opacidade aumentada */
+            padding: 20px;
+            border-radius: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .quiz button {
+            display: inline-block;
+            margin: 5px;
+        }
+        .quiz-result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="heartsContainer"></div>
+    <h1>Meu Amor Eterno para Agatha</h1>
+    <img src="https://observatorio3setor.org.br/wp-content/uploads/2019/09/1-girassol.jpg" alt="Flores românticas" />
+    
+    <div class="message" id="romanticMessage">
+        Carregando mensagem romântica...
+    </div>
+    
+    <div class="romantic-text">
+        <h2>Por Que Eu Te Amo</h2>
+        <p>Agatha, você é a luz dos meus dias, o sorriso que ilumina meu coração. Cada momento ao seu lado é um tesouro que guardo para sempre.</p>
+        <p>Seu amor me faz sentir completo, como se o mundo inteiro conspirasse para nos unir. Eu te amo mais do que palavras podem dizer.</p>
+    </div>
+    
+    <div class="romantic-text">
+        <h2>Lembranças Especiais</h2>
+        <p>Lembro-me da primeira conversa nossa, o momento mais marcante da minha vida, e hoje renovo minha promessa, estarei aqui pra todo e sempre com você, somente você.</p>
+        <p>Você é minha inspiração, minha musa, minha razão de viver. Obrigado por existir e por me escolher.</p>
+    </div>
+    
+    <button onclick="generateMessage()">Gerar Nova Mensagem Romântica</button>
+    
+   
+    
+    <!-- Nova seção: Poemas Românticos -->
+    <button onclick="revealPoem()">Revelar um Poema para Você</button>
+    <div class="poem hidden" id="poemContainer">
+        <h3>Poema do Amor Eterno</h3>
+        <p id="poemText">Carregando poema...</p>
+    </div>
+    
+    <!-- Nova seção: Carta de Amor Interativa -->
+    <button onclick="openLetter()">Abrir Carta de Amor</button>
+    <div class="letter hidden" id="letterContainer">
+        <h3>Minha Carta para Você, Agatha</h3>
+        <p>Querida Agatha,</p>
+        <p>Desde o primeiro olhar, meu coração soube que você era a pessoa certa. Você trouxe cor ao meu mundo cinza, alegria aos meus dias e amor infinito à minha vida. Prometo cuidar de você, amar você e estar ao seu lado em todos os momentos. Você é meu tudo.</p>
+        <p>Com todo o meu amor,<br>Seu namorado eterno</p>
+    </div>
+    
+    <!-- Nova seção: Contador de Dias Juntos -->
+    <div class="counter">
+        <h2>Dias Juntos</h2>
+        <p id="daysCounter">Calculando...</p>
+       
+    </div>
+    
+    <!-- Nova seção: Música Romântica -->
+    <h2>Uma Música para Nosso Amor</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HRt7DuNCMns?si=oUFnV_lTX-ua0oPq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- Vídeo atual: "Aliança" de Gusttavo Lima. Se quiser outro, forneça o link! -->
+    
+    <!-- Nova seção: Quiz de Amor -->
+    <div class="quiz">
+        <h2>Quiz: O Quanto Você Me Conhece?</h2>
+        <p id="quizQuestion">Qual é a minha cor favorita?</p>
+        <button onclick="answerQuiz('Preto')">Preto</button>
+        <button onclick="answerQuiz('Azul')">Azul</button>
+        <button onclick="answerQuiz('Vermelho')">Vermelho</button>
+        <p id="quizResult" class="hidden quiz-result"></p>
+    </div>
+    
+    <script>
+        const messages = [
+            "Agatha, meu amor, você é o sonho que se tornou realidade. Te amo infinitamente!",
+            "Cada batida do meu coração é por você. Você é minha eternidade.",
+            "Com você, o amor não é apenas uma palavra, é uma aventura diária.",
+            "Agatha, você é a rosa mais bela do jardim da minha vida.",
+            "Te amo mais a cada dia, e isso nunca vai mudar."
+        ];
+        
+        const poems = [
+            "Em teus olhos vejo o céu,\nNo teu sorriso, a luz do sol.\nAgatha, meu amor, você é meu universo,\nEternamente teu.",
+            "Coração batendo forte,\nPelo amor que sinto por ti.\nAgatha, você é minha sorte,\nJuntos, para sempre nós seremos.",
+            "Como estrelas no céu noturno,\nNosso amor brilha intenso.\nAgatha, você é meu eterno,\nAmor puro e imenso."
+        ];
+        
+        function generateMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById('romanticMessage').innerText = messages[randomIndex];
+        }
+        
+        function revealPoem() {
+            const poemContainer = document.getElementById('poemContainer');
+            const poemText = document.getElementById('poemText');
+            const randomIndex = Math.floor(Math.random() * poems.length);
+            poemText.innerText = poems[randomIndex];
+            poemContainer.classList.remove('hidden');
+        }
+        
+        function openLetter() {
+            const letterContainer = document.getElementById('letterContainer');
+            letterContainer.classList.remove('hidden');
+        }
+        
+        function calculateDays() {
+            // Substitua pela data real do início do relacionamento (formato: YYYY-MM-DD)
+            const startDate = new Date('2025-10-28'); // Alterado para 28 de outubro de 2025
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('daysCounter').innerText = diffDays + ' dias de amor!';
+        }
+        
+        function answerQuiz(answer) {
+            const result = document.getElementById('quizResult');
+            if (answer === 'Preto') {
+                result.innerText = 'Correto! Você me conhece bem. Te amo por isso!';
+                result.style.color = 'green';
+            } else {
+                result.innerText = 'Quase! Mas o importante é o amor que sentimos.';
+                result.style.color = 'red';
+            }
+            result.classList.remove('hidden');
+        }
+        
+        // Animação de corações flutuantes
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.getElementById('heartsContainer').appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        
+        // Inicializações
+        window.onload = function() {
+            generateMessage();
+            calculateDays();
+            setInterval(createHeart, 1000); // Corações aparecem a cada segundo
+        };
+    </script>
+</body>
+</html>
